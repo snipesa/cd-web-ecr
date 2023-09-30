@@ -1,0 +1,11 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: student-web
+  region: us-west-1
+nodeGroups:
+  - name: node-group
+    instanceType: t2.micro
+    desiredCapacity: 2
+    ssh:
+       publicKeyName: eks
