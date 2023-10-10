@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd
+spec:
+  project: default
+  
+   # Source of the application manifests
+  source:
+    repoURL: https://github.com/snipesa/cd-web-ecr.git
+    targetRevision: HEAD # This will point to the latest commit on the default branch
+    path: k8s-manifests/
+
+   # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    #specify namespace if created with one
+   # namespace: my-app-namespace
+  syncPolicy:
+    automated:
+      prune: true   # sync and delete resources from the cluster that are not in the Git repository.
+      selfHeal: true #sync to automatically fix drifts between state in git and destination cluster
