@@ -1,7 +1,7 @@
 # cd-web-ecr
 CD repo using Argo CD for kubernetes deployment
 
-This is a continuous deployment for a kubernetes cluster. The tool used fo continuous deployment is Argo-CD
+This is a continuous deployment for a kubernetes cluster. The tool used for continuous deployment is Argo-CD
 
 The repo is subdivided into  directories:
 - argocd

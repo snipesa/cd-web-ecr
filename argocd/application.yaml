@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/snipesa/cd-web-ecr.git
     targetRevision: HEAD # This will point to the latest commit on the default branch
-    path: k8s-manifests/
+    path: manifest-files/
 
    # Destination cluster and namespace to deploy the application
   destination:
