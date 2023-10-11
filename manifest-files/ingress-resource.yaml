@@ -1,0 +1,21 @@
+# This creates an application load balancer controller based  on the ingress resource - as ip
+#Use this as opposed to using a service with type loadbalancer if using an aws eks cluster with an application load balancer
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: student-ingress
+  annotations:
+    kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/target-type: "ip"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            pathType: Prefix
+            backend:
+              service:
+                name: service-student
+                port:
+                  number: 80
