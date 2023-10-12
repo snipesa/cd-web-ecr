@@ -19,5 +19,12 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
+  # include this section if making use of config maps
+        # env:
+        # - name: DATABASE_URL
+        #   valueFrom:
+        #   configMapKeyRef:
+        #     name: student-web
+        #     key: database_url
         ports:
-        - containerPort: 80
+        - containerPort: 8080
